@@ -9,5 +9,5 @@ window.onload = () => {
   const game = new ChessGame(root);
 
   game.init();
-}
+};
 

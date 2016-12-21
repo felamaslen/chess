@@ -24,6 +24,7 @@
     "eslint": "^3.12.2",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-react": "^6.8.0",
+    "firebase": "^3.6.4",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.1.7",

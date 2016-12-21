@@ -1,20 +1,22 @@
 import ReactDOM from "react-dom";
-import React from "react";
-import { TestCmp } from "test.jsx";
+
+import firebase from "firebase/app";
 
 import firebaseConfig from "config.firebase";
+import { ChessData } from "chess_data";
 
-// Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
+// Initialise Firebase
+const FB = firebase.initializeApp(firebaseConfig);
 
 export class ChessGame {
   constructor(root) {
     this.root = root;
+
+    this.game = new ChessData();
   }
   init() {
     // render root react component
-    const test = <TestCmp />;
-    ReactDOM.render(test, this.root);
+    ReactDOM.render(this.game.view, this.root);
   }
 }
 

@@ -3,3 +3,74 @@ body {
   padding: 0;
 }
 
+.chess-board {
+  width: 640px;
+  height: 640px;
+  padding: 40px;
+  margin: 40px;
+  border: 1px solid black;
+  position: relative;
+  .row {
+    width: 100%;
+    height: 80px;
+    &:nth-child(2n+1) {
+      .cell {
+        background: black;
+        &:nth-child(2n+1) {
+          background: white;
+        }
+      }
+    }
+  }
+  .cell {
+    width: 80px;
+    height: 100%;
+    display: inline-block;
+    background: white;
+    &:nth-child(2n+1) {
+      background: black;
+    }
+  }
+  .piece {
+    background-image: url(pieces.png);
+    width: 100%;
+    height: 100%;
+  }
+  .piece-0, .piece-7 { // white rook
+    background-position: 0 0;
+  }
+  .piece-1, .piece-6 { // white knight
+    background-position: 0 -80px;
+  }
+  .piece-2, .piece-5 { // white bishop
+    background-position: -160px -80px;
+  }
+  .piece-3 { // white queen
+    background-position: -80px 0;
+  }
+  .piece-4 { // white king
+    background-position: -80px -80px;
+  }
+  .piece-8 { // white pawn
+    background-position: -160px 0;
+  }
+
+  .piece-16, .piece-23 { // black rook
+    background-position: -240px 0;
+  }
+  .piece-17, .piece-22 { // black knight
+    background-position: -240px -80px;
+  }
+  .piece-18, .piece-21 { // black bishop
+    background-position: -400px -80px;
+  }
+  .piece-19 { // black queen
+    background-position: -320px 0;
+  }
+  .piece-20 { // black king
+    background-position: -320px -80px;
+  }
+  .piece-24 { // black pawn
+    background-position: -400px 0;
+  }
+}
