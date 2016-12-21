@@ -3,3 +3,4 @@ Gulpfile.js
 css/chess.css
 js/main.js
 js/build
+js/src/config.firebase.js
