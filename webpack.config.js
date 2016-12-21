@@ -10,17 +10,18 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015']
+          presets: ['es2015', 'react']
         }
       }
     ]
   },
   resolve: {
-    root: path.join(__dirname, 'js', 'src')
+    root: path.join(__dirname, 'js', 'src'),
+    extensions: ['', '.js', '.jsx']
   },
   stats: {
     colors: true,
