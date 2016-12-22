@@ -26,8 +26,10 @@ class ChessViewCmp extends Component {
     });
 
     return (
-      <div className="chess-board">
-        {cells}
+      <div className="chess-outer">
+        <div className="board">
+          {cells}
+        </div>
       </div>
     );
   }

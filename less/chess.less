@@ -1,53 +1,55 @@
 @dark_square: #b7b7b7;
 @light_square: white;
 
+@board_rotate: 15deg;
+
 body {
   margin: 0;
   padding: 0;
 }
 
-.chess-board {
+.chess-outer {
   width: 640px;
   height: 640px;
   padding: 40px;
   margin: 40px;
   border: 1px solid black;
   position: relative;
-  .black-square() {
-    background: @dark_square;
-  }
-  .white-square() {
-    background: @light_square;
+  perspective: 1100px;
+  perspective-origin: bottom;
+
+  .board {
+    width: 100%;
+    height: 100%;
+    transform: rotateX(@board_rotate);
+    transform-origin: bottom;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 6px 5px #000, 0 7px 0 16px #8e521f;
   }
   .row {
     width: 100%;
     height: 80px;
-    &:nth-child(2n+1) {
-      .cell {
-        .black-square();
-        &:nth-child(2n+1) {
-          .white-square();
-        }
-      }
+    &:nth-child(2n+1) .cell:nth-child(2n),
+    &:nth-child(2n) .cell:nth-child(2n+1) {
+      background: @dark_square;
     }
   }
   .cell {
+    background: @light_square;
     width: 80px;
     height: 100%;
     display: inline-block;
-    .white-square();
-    &:nth-child(2n+1) {
-      .black-square();
-    }
   }
   .piece {
     width: 100%;
     height: 100%;
+    transform: rotateX(-@board_rotate);
+    transform-origin: center bottom;
     &:after {
-      font-size: 4em;
-      line-height: 80px;
+      font-size: 5em;
       text-align: center;
       display: block;
+      width: inherit;
     }
   }
   .piece-0:after, .piece-7:after { // white rook
