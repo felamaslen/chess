@@ -1,3 +1,6 @@
+@dark_square: #b7b7b7;
+@light_square: white;
+
 body {
   margin: 0;
   padding: 0;
@@ -10,14 +13,20 @@ body {
   margin: 40px;
   border: 1px solid black;
   position: relative;
+  .black-square() {
+    background: @dark_square;
+  }
+  .white-square() {
+    background: @light_square;
+  }
   .row {
     width: 100%;
     height: 80px;
     &:nth-child(2n+1) {
       .cell {
-        background: black;
+        .black-square();
         &:nth-child(2n+1) {
-          background: white;
+          .white-square();
         }
       }
     }
@@ -26,51 +35,56 @@ body {
     width: 80px;
     height: 100%;
     display: inline-block;
-    background: white;
+    .white-square();
     &:nth-child(2n+1) {
-      background: black;
+      .black-square();
     }
   }
   .piece {
-    background-image: url(pieces.png);
     width: 100%;
     height: 100%;
+    &:after {
+      font-size: 4em;
+      line-height: 80px;
+      text-align: center;
+      display: block;
+    }
   }
-  .piece-0, .piece-7 { // white rook
-    background-position: 0 0;
+  .piece-0:after, .piece-7:after { // white rook
+    content: "\2656";
   }
-  .piece-1, .piece-6 { // white knight
-    background-position: 0 -80px;
+  .piece-1:after, .piece-6:after { // white knight
+    content: "\2658";
   }
-  .piece-2, .piece-5 { // white bishop
-    background-position: -160px -80px;
+  .piece-2:after, .piece-5:after { // white bishop
+    content: "\2657";
   }
-  .piece-3 { // white queen
-    background-position: -80px 0;
+  .piece-3:after { // white queen
+    content: "\2655";
   }
-  .piece-4 { // white king
-    background-position: -80px -80px;
+  .piece-4:after { // white king
+    content: "\2654";
   }
-  .piece-8 { // white pawn
-    background-position: -160px 0;
+  .piece-8:after { // white pawn
+    content: "\2659";
   }
 
-  .piece-16, .piece-23 { // black rook
-    background-position: -240px 0;
+  .piece-16:after, .piece-23:after { // black rook
+    content: "\265c";
   }
-  .piece-17, .piece-22 { // black knight
-    background-position: -240px -80px;
+  .piece-17:after, .piece-22:after { // black knight
+    content: "\265e";
   }
-  .piece-18, .piece-21 { // black bishop
-    background-position: -400px -80px;
+  .piece-18:after, .piece-21:after { // black bishop
+    content: "\265d";
   }
-  .piece-19 { // black queen
-    background-position: -320px 0;
+  .piece-19:after { // black queen
+    content: "\265b";
   }
-  .piece-20 { // black king
-    background-position: -320px -80px;
+  .piece-20:after { // black king
+    content: "\265a";
   }
-  .piece-24 { // black pawn
-    background-position: -400px 0;
+  .piece-24:after { // black pawn
+    content: "\265f";
   }
 }
